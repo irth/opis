@@ -28,7 +28,7 @@ def cache(seconds=60):
 @cache(seconds=60)
 def get_latest_tweet(user="irth7"):
     print("Requesting")
-    resp = requests.get(f"https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={user}&count=1", headers={'Authorization': f"Bearer {BEARER_TOKEN}"})
+    resp = requests.get(f"https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={user}&count=1&exclude_replies=true&include_rts=false", headers={'Authorization': f"Bearer {BEARER_TOKEN}"})
     data = json.loads(resp.text)
     return data[0]["text"], data[0]["id"]
 
