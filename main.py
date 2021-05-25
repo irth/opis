@@ -30,11 +30,12 @@ def get_latest_tweet(user="irth7"):
     print("Requesting")
     resp = requests.get(f"https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name={user}&count=1", headers={'Authorization': f"Bearer {BEARER_TOKEN}"})
     data = json.loads(resp.text)
-    return data[0]["text"]
+    return data[0]["text"], data[0]["id"]
 
 from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return render_template('index.html', opis=get_latest_tweet())
+    opis, tid = get_latest_tweet()
+    return render_template('index.html', opis=opis, url=f"https://twitter.com/irth7/status/{tid}")

@@ -33,10 +33,11 @@ body {
 }
 
 .whole {
-
+    text-decoration: none;
     font-family: Tahoma;
     display: flex;
     background-color: #f4f5e5;
+    color: black;
     max-width: 600px;
     width: 100%;
     padding: 12px;
@@ -73,7 +74,7 @@ body {
             </style>
     </head>
     <body>
-        <div class="whole">
+        <a href="{{url}}" class="whole">
             <div class="status">
                 <img class="status-icon" src="{{ url_for("static", filename="./dostepny.png") }}">
             </div>

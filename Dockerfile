@@ -6,7 +6,10 @@ ENV FLASK_APP main.py
 ENV FLASK_DEBUG 0
 COPY ./requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt && pip install gunicorn
-COPY ./ /app
+RUN mkdir /app
+COPY ./main.py /app/
+COPY ./static /app/static
+COPY ./templates /app/templates
 WORKDIR /app
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
 
