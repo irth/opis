@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta charset="utf-8">
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/xp.css"
+            >
+
+            <style>
+@font-face {
+    font-family: Tahoma;
+    src: url("{{ url_for('static', filename='/fonts/Tahoma-Font/TAHOMA_0.TTF') }}");
+}
+
+@font-face {
+    font-family: TahomaB;
+    src: url("{{ url_for('static', filename='/fonts/Tahoma-Font/TAHOMAB0.TTF') }}");
+}
+
+body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.whole {
+
+    font-family: Tahoma;
+    display: flex;
+    background-color: #f4f5e5;
+    max-width: 600px;
+    width: 100%;
+    padding: 12px;
+}
+
+.status-icon {
+    height: 36px;
+}
+
+.rest {
+    flex-grow: 2;
+    margin-left: 4px;
+}
+
+.name {
+    display: flex;
+    align-items: flex-end;
+    font-size: 28px;
+    height: 36px;
+    font-family: TahomaB, Tahoma;
+}
+.opis {
+    font-size: 20px;
+    margin-top: 2px;
+}
+
+.icons {
+    margin-top: 2px;
+}
+
+.contact-icon {
+    height: 32px;
+}
+            </style>
+    </head>
+    <body>
+        <div class="whole">
+            <div class="status">
+                <img class="status-icon" src="{{ url_for("static", filename="./dostepny.png") }}">
+            </div>
+            <div class="rest"> 
+                <div class="name">Wojtek</div>
+                <div class="opis">{{ opis }}</div>
+            </div>
+            <div class="icons">
+                <img class="contact-icon" src="{{ url_for("static", filename="./icons.png") }}">
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,1 @@
+curl --request POST -u "$TWITTER_API_KEY:$TWITTER_API_SECRET" --data 'grant_type=client_credentials' -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" https://api.twitter.com/oauth2/token
